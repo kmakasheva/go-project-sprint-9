@@ -22,8 +22,8 @@ func Generator(ctx context.Context, ch chan<- int64, fn func(int64)) {
 		case <-ctx.Done():
 			return
 		case ch <- counter:
-			counter++
 			fn(counter)
+			counter++
 		}
 	}
 }
